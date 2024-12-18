@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include<string.h>
+#define MAX 100
+int main()
+{
+    char str[100];
+    fgets(str,MAX,stdin);
+    str[strcspn(str,"\n")]=0;
+    char toRemove;
+    scanf("%c",&toRemove);
+    int itr = strlen(str);
+    while(itr>=0 && str[itr]!=toRemove){
+        itr--;
+    }
+    while(itr<strlen(str)){
+        str[itr]=str[itr+1];
+        itr++;
+    }
+    printf("%s",str);
+}
